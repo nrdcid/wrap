@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wrap-qec"
+version = "0.0.1"
+description = "QEC is just a compiler pass: a fault-tolerant quantum compiler stack built on callback wrapping."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+dependencies = ["numpy>=1.26", "stim>=1.13", "kirin-toolchain>=0.17"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "hypothesis>=6", "pymatching>=2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wrap"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
